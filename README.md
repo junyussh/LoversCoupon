@@ -13,3 +13,4 @@
 ### Security
 - [ ] Session check
 - [ ] Account authorization
+- [ ] Handle server error conditions

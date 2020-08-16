@@ -71,7 +71,7 @@ function SetCookie(UserId){
 }
 function dothis() {
     let UserId = SearchParams()
-    let target = new URL('/get/user=' + UserId, Config["ApiServer"]);
+    let target = Config["ApiServer"] + '/get/user=' + UserId;
 
     SetUserName(UserId);
     SetCookie(UserId);

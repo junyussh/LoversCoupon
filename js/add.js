@@ -8,7 +8,7 @@ function SubmitData() {
     var cc = document.getElementById("TicketContent").value;
     var ui = cn ? 0 : 1;
 
-    var theUrl = new URL('/add/cn=' + cn + "&ed=" + ed + "&fu=" + fu + "&cc=" + cc + "&ui=" + ui, Config["ApiServer"]);
+    let theUrl = Config["ApiServer"] + '/get/user=' + UserId;
     
     console.log(theUrl)
     //HTTP GET
