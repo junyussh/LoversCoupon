@@ -83,7 +83,7 @@ function dothis() {
             console.log(data)
 
             data["card"].forEach(function(element){
-                AddCard(element["CardName"], Config["UserId"][element["FromUser"]], element["ExpireDate"], element["CardContent"])});
+                AddCard(element["CouponName"], Config["UserId"][element["FromUser"]], element["ExpireDate"], element["CouponContent"])});
         }).catch((err) => {
             console.log('錯誤:', err);
         });
