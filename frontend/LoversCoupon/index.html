@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情侶兌換券</title>
+    <!-- Tocas JS：模塊與 JavaScript 函式 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
+
+</head>
+
+<body>
+
+    <div class="ts center aligned big header" style="margin-top: 12px;">選擇身分</div>
+    <div class="ts very narrow container segment">
+
+        <div align="center">
+            <form id="userMode" action="ticket.html" method="GET" >
+                <button class="ts positive button" name="user" value="0" onClick="javascript:this.form.submit();">寶寶</button>
+                <button class="ts negative button" name="user" value="1" onClick="javascript:this.form.submit();">貝貝</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
