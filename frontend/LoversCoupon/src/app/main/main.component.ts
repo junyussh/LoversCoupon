@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HandlerService } from "../handler.service";
 
 @Component({
   selector: 'app-main',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: HandlerService) {}
+
+  setUser(_user){
+    //this.service.user = _user;
+    console.log(this.service.user);
+  }
 
   ngOnInit(): void {
   }

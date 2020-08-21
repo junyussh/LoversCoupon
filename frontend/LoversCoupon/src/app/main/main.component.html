@@ -2,9 +2,7 @@
 <div class="ts very narrow container segment">
 
     <div align="center">
-        <form id="userMode" action="ticket.html" method="GET" >
-            <button class="ts positive button" name="user" value="0" onClick="javascript:this.form.submit();">寶寶</button>
-            <button class="ts negative button" name="user" value="1" onClick="javascript:this.form.submit();">貝貝</button>
-        </form>
+        <button class="ts positive button" name="user" value="0" (click)="setUser('0')">寶寶</button>
+        <button class="ts negative button" name="user" value="1" (click)="setUser('1')">貝貝</button>
     </div>
 </div>
