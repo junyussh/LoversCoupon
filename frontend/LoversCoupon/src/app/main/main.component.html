@@ -2,7 +2,7 @@
 <div class="ts very narrow container segment">
 
     <div align="center">
-        <button class="ts positive button" name="user" value="0" (click)="setUser('0')">寶寶</button>
-        <button class="ts negative button" name="user" value="1" (click)="setUser('1')">貝貝</button>
+        <button class="ts positive button" (click)="setUser(0); navigateToTicket();">寶寶</button>
+        <button class="ts negative button"(click)="setUser(1) ; navigateToTicket();">貝貝</button>
     </div>
 </div>

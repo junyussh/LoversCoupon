@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HandlerService } from "../handler.service";
 
 @Component({
   selector: 'app-tickets',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: HandlerService) { }
 
   ngOnInit(): void {
+  }
+
+  dataList = this.service.dataList;
+  username = this.getUserName();
+  UserAlias = this.service.UA;
+
+  getUserName(){
+    return this.service.username;
   }
 
 }

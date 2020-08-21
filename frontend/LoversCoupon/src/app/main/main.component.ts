@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HandlerService } from "../handler.service";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -8,12 +9,16 @@ import { HandlerService } from "../handler.service";
 })
 export class MainComponent implements OnInit {
 
-  constructor(private service: HandlerService) {}
+  constructor(private service: HandlerService, private router: Router) {}
 
-  setUser(_user){
-    //this.service.user = _user;
+  setUser(_user: number){
+    this.service.user = _user;
     console.log(this.service.user);
   }
+
+  navigateToTicket() {
+    this.router.navigateByUrl('/tickets');
+ }
 
   ngOnInit(): void {
   }
