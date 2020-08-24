@@ -1,21 +1,19 @@
 <div class="ts center aligned big header" style="margin-top: 12px;">選擇身分</div>
 <div class="ts very narrow container segment">
 
-    <div align="center">
-        <div class="ts grid">
-            <div class="sixteen wide column">
-                <div class="ts input">
-                    <input type="password" placeholder="輸入密碼">
-                </div>
-            </div>
-            <div class="row">
-                <div class="right floated column">
-                    <button class="ts positive button" (click)="navigateToTicket(0);">寶寶</button>
-                </div>
-                <div class="left floated column">
-                    <button class="ts negative button" (click)="navigateToTicket(1);">貝貝</button>
-                </div>
-            </div>
+    <div>
+        <div class="ts very narrow container">
+                <form action="" class="ts form">
+                    <div class="field">
+                        <input type="password" placeholder="輸入密碼">
+                    </div>
+                    <div class="field">
+                        <div class="ts fluid relaxed separated buttons">
+                            <button class="ts positive button" (click)="navigateToTicket(0);">寶寶</button>
+                            <button class="ts negative button" (click)="navigateToTicket(1);">貝貝</button>
+                        </div>
+                    </div>
+                </form>
         </div>
     </div>
 </div>
