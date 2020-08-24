@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { HandlerService } from "../handler.service";
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute, RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -9,15 +9,10 @@ import {Router} from '@angular/router';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private service: HandlerService, private router: Router) {}
+  constructor(private service: HandlerService, private router: Router, private RA: ActivatedRoute) {}
 
-  setUser(_user: number){
-    this.service.user = _user;
-    console.log(this.service.user);
-  }
-
-  navigateToTicket() {
-    this.router.navigateByUrl('/tickets');
+  navigateToTicket(_user: number) {
+    this.router.navigate(['/tickets'], { queryParams: {user: _user}});
  }
 
   ngOnInit(): void {

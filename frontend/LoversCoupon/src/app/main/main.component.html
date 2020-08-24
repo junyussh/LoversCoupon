@@ -2,7 +2,20 @@
 <div class="ts very narrow container segment">
 
     <div align="center">
-        <button class="ts positive button" (click)="setUser(0); navigateToTicket();">寶寶</button>
-        <button class="ts negative button"(click)="setUser(1) ; navigateToTicket();">貝貝</button>
+        <div class="ts grid">
+            <div class="sixteen wide column">
+                <div class="ts input">
+                    <input type="password" placeholder="輸入密碼">
+                </div>
+            </div>
+            <div class="row">
+                <div class="right floated column">
+                    <button class="ts positive button" (click)="navigateToTicket(0);">寶寶</button>
+                </div>
+                <div class="left floated column">
+                    <button class="ts negative button" (click)="navigateToTicket(1);">貝貝</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
