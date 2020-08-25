@@ -8,13 +8,20 @@ DATE_FORMAT = '%Y%m%d %H:%M:%S'
 logging.basicConfig(level=logging.DEBUG, format=LOGGING_FORMAT, datefmt=DATE_FORMAT)
 
 class DataDB():
-
     def __init__(self, _UserId):
         self.UserId = _UserId
         self.DBPath = os.path.join("data", "main.db")
         self.DataTemplate = {
             "user": "",
-            "card": []
+            "card": [{
+                	"Id": 0,
+	                "UserId":"0",
+                    "CouponName": "template",
+                    "CouponContent": "template",
+                    "ExpireDate": "template",
+                    "FromUser": "1",
+                    "CouponStatus":0
+            }]
         }
 
     #https://stackoverflow.com/questions/3300464/how-can-i-get-dict-from-sqlite-query
@@ -63,10 +70,16 @@ class DataDB():
         logging.debug(self.rows)
         return self.rows
 
-    def delete(self):
-        pass
+    def delete(self, id):
+        cmd = 'DELETE FROM coupon WHERE Id="{0}"'.format(id)
 
-    def modify(self):
+        response = self.RunDBCommand(cmd)
+        if(response != "ok"):
+            logging.error("Err: " + response)
+            return False
+        return True
+
+    def update(self):
         pass
 
     def ReadFormateData(self):
