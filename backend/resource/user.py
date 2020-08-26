@@ -40,7 +40,39 @@ class User(Resource):
 
 
     def put(self, userId):
-        pass
+        result = user_schema.load(request.json)
+        #user = UserModel(name=result["name"], email=result['email'], password=result['password'], sex=result["sex"], birth=result["birth"], phone=result["phone"])
+        user = UserModel.get_user(None ,userId)
+
+        if(not user):
+            return {
+                'successe': False,
+                'message': 'username not exist!'
+            }, 403
+        
+        user.id = userId
+        user.name = result["name"]
+        user.email = result["email"]
+        user.password = result["password"]
+        user.birth = result["birth"]
+        user.sex = result["sex"]
+        user.phone = result["phone"]
+
+        user.update_user()
+        return {
+            'successe': True,
+        }
 
     def delete(self, userId):
-        pass
+        UserModel.delete_user(userId)
+        return {
+            'successe': True,
+        }
+
+
+class Users(Resource):
+    def get(self):
+        return {
+            'message': '',
+            'users': user_schema.dump(UserModel.get_all_user(), True).data
+        }
