@@ -1,6 +1,11 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
 
+from common.config import LC_bConfig
+from common.jwt import jwt
+from resource.user import User
+from resource.coupon import Coupon
+
 app = Flask(__name__)
 api = Api(app)
 
@@ -12,20 +17,19 @@ users = []
 #     "email": "test@example.org"
 # }
 
-class User(Resource):
-    def get(self, userId):
-        return "GET", 200
-
-    def post(self):
-        return "POST", 201
-
-    def put(self, userId):
+class Auth(Resource):
+    def get(self):
         pass
 
-    def delete(self):
-        pass
+class General(Resource):
+    def get(self):
+        return "API", 200
 
+api.add_resource(General, '/api')     
 api.add_resource(User, '/api/user/<string:userId>')
+api.add_resource(Coupon, '/api/coupon/<string:Id>')
 
-if __name__ == '__main__':
+if( __name__ == '__main__' ):
+    from common.ma import ma
+    ma.init_app(app)
     app.run(debug=True)
