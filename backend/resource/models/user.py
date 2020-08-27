@@ -1,4 +1,5 @@
 import sqlite3
+import hashlib
 
 users = []
 
@@ -12,7 +13,12 @@ class UserModel:
             self.id = id
         self.name = name
         self.email = email
-        self.password = password
+
+        #處理密碼
+        s = hashlib.sha256()
+        s.update(password.encode('utf-8'))
+        self.password = s.hexdigest()
+
         self.birth = birth
         self.sex = sex
         self.phone = phone
@@ -21,7 +27,7 @@ class UserModel:
         conn = sqlite3.connect('main.db')
         cursor = conn.cursor()
         insert_query = 'INSERT INTO users (name, password, sex, birth, phone, email) \
-        VALUES(?, ?, ?, ?, ?, ?, ?)'
+        VALUES(?, ?, ?, ?, ?, ?)'
         cursor.execute(insert_query, (self.name, self.password, self.sex,
                        self.birth, self.phone, self.email))
         conn.commit()
