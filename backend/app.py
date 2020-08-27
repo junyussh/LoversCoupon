@@ -3,7 +3,7 @@ from flask_restful import Resource, Api
 
 from common.config import LC_bConfig
 from common.jwt import jwt
-from resource.user import User
+from resource.user import User, Users
 from resource.coupon import Coupon
 
 app = Flask(__name__)
@@ -27,6 +27,7 @@ class General(Resource):
 
 api.add_resource(General, '/api')     
 api.add_resource(User, '/api/user/<string:userId>')
+api.add_resource(Users, '/api/user')
 api.add_resource(Coupon, '/api/coupon/<string:Id>')
 
 if( __name__ == '__main__' ):

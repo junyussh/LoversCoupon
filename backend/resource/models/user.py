@@ -32,7 +32,6 @@ class UserModel:
                        self.birth, self.phone, self.email))
         conn.commit()
         conn.close()
-        #users.append(self)
 
     @staticmethod
     def get_user(self, id):
@@ -45,7 +44,8 @@ class UserModel:
         if result is None:
             return None
         print(result)
-        user = UserModel(id=result[0], name=result[1], password=result[2], sex = result[3], birth=result[4], phone=result[5], email=result[6])
+        user = UserModel(id=result[0], name=result[1], password=result[2], sex = result[3], \
+            birth=result[4], phone=result[5], email=result[6])
         user.id = result[0]
         conn.close()
         return user
@@ -75,7 +75,11 @@ class UserModel:
         cursor = conn.cursor()
         query_one_query = 'SELECT * FROM users'
         for item in cursor.execute(query_one_query):
-            user = UserModel(id=item[0], name=item[1], password=item[2], sex = item[3], birth=item[4], phone=item[5], email=item[6])
+            user = UserModel(id=item[0], name=item[1], password=item[2], sex = item[3], \
+                birth=item[4], phone=item[5], email=item[6])
             users.append(user)
         conn.close()
         return users
+
+if __name__ == "__main__":
+    print(UserModel.get_all_user())

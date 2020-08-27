@@ -72,7 +72,10 @@ class User(Resource):
 
 class Users(Resource):
     def get(self):
+        result = []
+        for item in UserModel.get_all_user():
+            result.append(user_schema.dump(item))
         return {
             'message': '',
-            'users': user_schema.dump(UserModel.get_all_user(), True).data
+            'users': result
         }
