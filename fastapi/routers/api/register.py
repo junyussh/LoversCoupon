@@ -1,7 +1,9 @@
-from fastapi import FastAPI
 from pydantic import BaseModel
 from enum import Enum
-from routers.api import api
+from datetime import date
+from fastapi import APIRouter, HTTPException
+
+router = APIRouter()
 
 class Gender(str, Enum):
     male = 'male'
@@ -18,6 +20,10 @@ class User(BaseModel):
     sex: Gender
     phone: str = None
 
-@api.get("/register")
-def register():
+@router.get("/register")
+def registerGet():
     return "register"
+
+@router.post("/register")
+def register(user: User):
+    return user

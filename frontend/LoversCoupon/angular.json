@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "LoversCoupon"
+    }
+  },
+  "defaultProject": "LoversCoupon",
+  "cli": {
+    "analytics": false
+  }
 }

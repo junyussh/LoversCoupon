@@ -12,4 +12,4 @@ $ pip install -r requirements.txt
 $ uvicorn main:app --reload --port 8001
 ```
 
-Auto-generated at http://localhost:8001/api/v1/docs by default.
+Auto-generated API document is at http://localhost:8001/api/v1/docs by default.
